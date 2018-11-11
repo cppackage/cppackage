@@ -18,7 +18,8 @@ else
     BASHRC=$2
 fi
 PATH_COMMAND="export PATH=\$PATH:$INSTALLATION_DIRECTORY # make cppackage executable from anywhere"
-if [ -z `grep "$PATH_COMMAND" "$BASHRC"` ]; then
+GREP_RESULT=`grep "$PATH_COMMAND" "$BASHRC"`
+if [ -z "$GREP_RESULT" ]; then
     echo >> $BASHRC
     echo "$PATH_COMMAND" >> $BASHRC
 fi
